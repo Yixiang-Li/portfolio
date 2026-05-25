@@ -91,7 +91,7 @@ section {
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: min(var(--max), calc(100% - 96px));
   margin: 0 auto;
   padding: 24px 0 18px;
@@ -99,12 +99,6 @@ section {
 
 .topbar a {
   transition: color 180ms ease, opacity 180ms ease;
-}
-
-.wordmark {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0;
 }
 
 nav {
@@ -841,9 +835,7 @@ address a {
 
 @media (max-width: 640px) {
   .topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
+    justify-content: flex-start;
     padding-top: 22px;
   }
 
