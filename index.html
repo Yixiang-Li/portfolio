@@ -8,11 +8,13 @@
       name="description"
       content="李翼翔的留学规划与文书作品集：背景规划、申请叙事、文书结构、项目匹配与案例交付。"
     />
+    <meta name="theme-color" content="#f7f4ec" />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <div class="reading-progress" aria-hidden="true"></div>
     <a class="skip-link" href="#summary">跳到正文</a>
     <header class="topbar" aria-label="页面导航">
       <a class="wordmark" href="#top">李翼翔</a>
@@ -32,7 +34,14 @@
       </section>
 
       <figure class="lead-figure">
-        <img src="./assets/brand-hero.png" alt="李翼翔个人品牌视觉：暖棕背景下的人像与文档屏幕" />
+        <img
+          src="./assets/brand-hero.png"
+          alt="李翼翔个人品牌视觉：暖棕背景下的人像与文档屏幕"
+          width="1695"
+          height="928"
+          fetchpriority="high"
+          decoding="async"
+        />
       </figure>
 
       <div class="article-shell">
@@ -132,7 +141,7 @@
               </div>
               <div>
                 <dt>证明</dt>
-                <dd>这个案例体现的是长期背景规划能力，以及对欧陆 HCI、AI、Design、Media 相关项目的深度理解。</dd>
+                <dd>这个案例体现的是长期背景规划能力，以及对欧陆和英语区交叉项目的课程结构、材料偏好与申请逻辑的理解。</dd>
               </div>
             </dl>
 
@@ -150,17 +159,31 @@
               </div>
               <div class="artifact-view">
                 <section id="case01-panel-proposal" role="tabpanel" aria-labelledby="case01-tab-proposal">
-                  <img src="./assets/evidence-research-proposal.png" alt="Research Proposal 首页预览" />
+                  <img
+                    src="./assets/evidence-research-proposal.png"
+                    alt="Research Proposal 首页预览"
+                    width="856"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div>
                     <h4>Algorithmic Monoculture</h4>
-                    <p>用研究问题、理论框架、数据方法和可行性证明“数字媒体 + AIGC + HCI”不是松散兴趣，而是可继续深造的研究方向。</p>
+                    <p>用研究问题、理论框架、数据方法和可行性证明“数字媒体 + AIGC + 交叉研究”不是松散兴趣，而是可继续深造的研究方向。</p>
                   </div>
                 </section>
                 <section id="case01-panel-letter" role="tabpanel" aria-labelledby="case01-tab-letter" hidden>
-                  <img src="./assets/evidence-kth-letter.png" alt="Motivation Letter 首页预览" />
+                  <img
+                    src="./assets/evidence-kth-letter.png"
+                    alt="Motivation Letter 首页预览"
+                    width="848"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div>
-                    <h4>KTH / HCI 方向动机信</h4>
-                    <p>把 Geometry Smart、AIGC workflow、产品实习和欧洲项目偏好串联起来，形成“技术实现服务人机交互问题”的申请叙事。</p>
+                    <h4>KTH / 交叉项目动机信</h4>
+                    <p>把 Geometry Smart、AIGC workflow、产品实习和欧洲项目偏好串联起来，形成“技术实现服务具体问题”的申请叙事。</p>
                   </div>
                 </section>
               </div>
@@ -202,7 +225,14 @@
               </div>
               <div class="artifact-view">
                 <section id="case02-panel-cv" role="tabpanel" aria-labelledby="case02-tab-cv">
-                  <img src="./assets/evidence-hsy-cv-redacted.png" alt="已匿名处理的学生 CV 首页预览" />
+                  <img
+                    src="./assets/evidence-hsy-cv-redacted.png"
+                    alt="已匿名处理的学生 CV 首页预览"
+                    width="848"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div>
                     <h4>CV Storytelling</h4>
                     <p>将商业拍摄、品牌内容、本地化短视频和校园媒体管理重新排序，突出内容策略、用户洞察、跨平台传播和项目交付。</p>
@@ -253,28 +283,28 @@
                 </p>
               </div>
               <div class="decision-options" role="tablist" aria-label="项目判断维度">
-                <button type="button" class="is-active" role="tab" aria-selected="true" aria-controls="case03-lens-panel" data-lens-trigger data-title="学院归属" data-copy="继续教育学院、交叉学院和计算机学院面对的是不同申请人池。归属变化会直接改变竞争强度。">
+                <button type="button" id="case03-lens-01" class="is-active" role="tab" aria-selected="true" aria-controls="case03-lens-panel" data-lens-trigger data-title="学院归属" data-copy="继续教育学院、交叉学院和计算机学院面对的是不同申请人池。归属变化会直接改变竞争强度。">
                   <span>01</span>
                   <strong>学院归属</strong>
                   <small>先看竞争池</small>
                 </button>
-                <button type="button" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="项目新旧" data-copy="新开项目常常信息较少、历史录取样本少，短期内会出现比成熟项目更明显的判断空间。">
+                <button type="button" id="case03-lens-02" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="项目新旧" data-copy="新开项目常常信息较少、历史录取样本少，短期内会出现比成熟项目更明显的判断空间。">
                   <span>02</span>
                   <strong>项目新旧</strong>
                   <small>识别窗口期</small>
                 </button>
-                <button type="button" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="课程定位" data-copy="同样叫 AI，可能分别偏企业应用、数据分析、工程研发或管理转型。定位越清晰，匹配叙事越好写。">
+                <button type="button" id="case03-lens-03" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="课程定位" data-copy="同样叫 AI，可能分别偏企业应用、数据分析、工程研发或管理转型。定位越清晰，匹配叙事越好写。">
                   <span>03</span>
                   <strong>课程定位</strong>
                   <small>拆真实方向</small>
                 </button>
-                <button type="button" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="申请人池" data-copy="强计算机背景、商科背景、泛工程背景进入的不是同一个池子；判断申请人池比只看 QS 更接近真实难度。">
+                <button type="button" id="case03-lens-04" role="tab" aria-selected="false" aria-controls="case03-lens-panel" data-lens-trigger data-title="申请人池" data-copy="强计算机背景、商科背景、泛工程背景进入的不是同一个池子；判断申请人池比只看 QS 更接近真实难度。">
                   <span>04</span>
                   <strong>申请人池</strong>
                   <small>估算真实难度</small>
                 </button>
               </div>
-              <div class="decision-detail" id="case03-lens-panel" role="tabpanel" aria-live="polite">
+              <div class="decision-detail" id="case03-lens-panel" role="tabpanel" aria-labelledby="case03-lens-01" aria-live="polite">
                 <span class="detail-index" data-lens-number>01</span>
                 <h4 data-lens-title>学院归属</h4>
                 <p data-lens-copy>继续教育学院、交叉学院和计算机学院面对的是不同申请人池。归属变化会直接改变竞争强度。</p>

@@ -41,6 +41,7 @@ document.querySelectorAll("[data-tabs] [role='tablist']").forEach((tablist) => {
 });
 
 const tocLinks = Array.from(document.querySelectorAll(".toc:not(.empty) a[href^='#']"));
+const navLinks = Array.from(document.querySelectorAll("nav a[href^='#']"));
 const tocSections = tocLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -49,6 +50,15 @@ if ("IntersectionObserver" in window && tocLinks.length && tocSections.length) {
   const setCurrentLink = (id) => {
     tocLinks.forEach((link) => {
       const current = link.getAttribute("href") === `#${id}`;
+      if (current) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const current =
+        href === `#${id}` ||
+        (href === "#cases" && id.startsWith("case-")) ||
+        (href === "#method" && id === "capability");
       if (current) link.setAttribute("aria-current", "true");
       else link.removeAttribute("aria-current");
     });
@@ -67,6 +77,18 @@ if ("IntersectionObserver" in window && tocLinks.length && tocSections.length) {
   tocSections.forEach((section) => observer.observe(section));
 }
 
+const progress = document.querySelector(".reading-progress");
+const updateProgress = () => {
+  if (!progress) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+  progress.style.transform = `scaleX(${Math.min(Math.max(ratio, 0), 1)})`;
+};
+
+updateProgress();
+window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener("resize", updateProgress);
+
 document.querySelectorAll("[data-lens]").forEach((module) => {
   const buttons = Array.from(module.querySelectorAll("[data-lens-trigger]"));
   const title = module.querySelector("[data-lens-title]");
@@ -83,6 +105,7 @@ document.querySelectorAll("[data-lens]").forEach((module) => {
         item.setAttribute("aria-selected", String(active));
         item.tabIndex = active ? 0 : -1;
       });
+      if (output && button.id) output.setAttribute("aria-labelledby", button.id);
       if (title) title.textContent = button.dataset.title || "";
       if (copy) copy.textContent = button.dataset.copy || "";
       if (number) number.textContent = String(index + 1).padStart(2, "0");
