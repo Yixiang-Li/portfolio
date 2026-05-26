@@ -165,8 +165,9 @@ h1 span {
 .lead-figure img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 1695 / 928;
+  object-fit: contain;
   object-position: center;
   border-radius: 21px;
 }
@@ -871,8 +872,6 @@ address a {
 
   .lead-figure img {
     border-radius: 14px;
-    aspect-ratio: 4 / 3;
-    object-position: 33% center;
   }
 
   .toc {
